@@ -1,0 +1,17 @@
+﻿<tr>
+	<td>Title: </td>
+	<td>Platform: </td>
+	<td>Genre: </td>
+	<td>ESRB Rating: </td>
+	<td>Year: </td>
+	<td>Image: </td>
+	@*if(loanedto == null) *@
+	<td>LoanedTo: </td>
+	<td>LoanedOut: </td>
+	@*endif*@
+</tr>
+
+@code {
+	[Parameter]
+	public required VideoGameComponent VideoGame { get; set; }
+}

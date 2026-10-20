@@ -1,0 +1,68 @@
+﻿@page "/Collections"
+@using VideoGameLibrary.Components.Subs
+@attribute [StreamRendering]
+
+<PageTitle>Video Game Library</PageTitle>
+<h1>Video Game Library</h1>
+
+<p>sample page content</p>
+
+<footer>Copyright 2026</footer>
+
+@code {
+	private Models.VideoGame[]? videoGames;
+
+	protected override async Task OnInitializedAsync()
+	{
+		// Simulate asynchronous loading to demonstrate streaming rendering
+		await Task.Delay(500);
+
+		Models.VideoGame g0 = new Models.VideoGame(
+			"Title:",
+			"Platform:",
+			"Genre:",
+			"ESRB Rating:",
+			2026,
+			"Image:",
+			"LoanedTo:",
+			DateOnly.Parse("LoanedOut:"));
+		Models.VideoGame g1 = new Models.VideoGame(
+			"Title:",
+			"Platform:",
+			"Genre:",
+			"ESRB Rating:",
+			2026,
+			"Image:",
+			"LoanedTo:",
+			DateOnly.Parse("LoanedOut:"));
+		Models.VideoGame g2 = new Models.VideoGame(
+			"Title:",
+			"Platform:",
+			"Genre:",
+			"ESRB Rating:",
+			2026,
+			"Image:",
+			"LoanedTo:",
+			DateOnly.Parse("LoanedOut:"));
+		Models.VideoGame g3 = new Models.VideoGame(
+			"Title:",
+			"Platform:",
+			"Genre:",
+			"ESRB Rating:",
+			2026,
+			"Image:",
+			"LoanedTo:",
+			DateOnly.Parse("LoanedOut:"));
+		Models.VideoGame g4 = new Models.VideoGame(
+			"Title:",
+			"Platform:",
+			"Genre:",
+			"ESRB Rating:",
+			2026,
+			"Image:",
+			"LoanedTo:",
+			DateOnly.Parse("LoanedOut:"));
+
+			videoGames = [g0, g1, g2, g3, g4];
+    }
+}
