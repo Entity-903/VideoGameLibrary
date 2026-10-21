@@ -1,17 +1,30 @@
-﻿<tr>
-	<td>Title: </td>
-	<td>Platform: </td>
-	<td>Genre: </td>
-	<td>ESRB Rating: </td>
-	<td>Year: </td>
-	<td>Image: </td>
-	@*if(loanedto == null) *@
-	<td>LoanedTo: </td>
-	<td>LoanedOut: </td>
-	@*endif*@
-</tr>
+﻿@if(VideoGame.LoanedTo == null)
+{
+	<td>
+	<h4>@VideoGame.Title</h4>
+	<img src="@VideoGame.Image"/>
+	<p>Platform: @VideoGame.Platform</p>
+	<p>Genre: @VideoGame.Genre</p>
+	<p>ESRB Rating: @VideoGame.ESRBRating</p>
+	<p>Year: @VideoGame.Year</p>
+	</td>
+}
+else
+{
+	<td>
+		<h4>@VideoGame.Title</h4>
+		<img src="@VideoGame.Image" />
+		<p>Platform: @VideoGame.Platform</p>
+		<p>Genre: @VideoGame.Genre</p>
+		<p>ESRB Rating: @VideoGame.ESRBRating</p>
+		<p>Year: @VideoGame.Year</p>
+		<p>LoanedTo: @VideoGame.LoanedTo</p>
+		<p>LoanedOut: @VideoGame.LoanDate</p>
+	</td>
+}
 
 @code {
+	// using "lib/images" directory?
 	[Parameter]
-	public required VideoGameComponent VideoGame { get; set; }
+	public required VideoGame VideoGame { get; set; }
 }

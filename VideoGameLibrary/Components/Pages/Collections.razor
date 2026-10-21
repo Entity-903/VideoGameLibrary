@@ -3,65 +3,79 @@
 @attribute [StreamRendering]
 
 <PageTitle>Video Game Library</PageTitle>
+
 <h1>Video Game Library</h1>
 
-<p>sample page content</p>
 
-<footer>Copyright 2026</footer>
+
+@if(videoGames == null)
+{
+	<p><em>Loading Your Collection...</em></p>
+}
+else
+{
+	<h3>Games in Collection: @videoGames.Count()</h3>
+	// Use <div> instead of <table> to allow a limit on # of elements per row
+	<table class="table" col="4">
+		<tr>
+			@foreach(var videoGame in videoGames)
+			{
+				<VideoGameComponent VideoGame="videoGame"/>
+			}
+		</tr>
+	</table>
+}
 
 @code {
 	private Models.VideoGame[]? videoGames;
-
+	/// <summary>
+	/// Creates predetermined collection of games for the page
+	/// </summary>
+	/// <returns></returns>
 	protected override async Task OnInitializedAsync()
 	{
 		// Simulate asynchronous loading to demonstrate streaming rendering
-		await Task.Delay(500);
+		await Task.Delay(1500);
 
 		Models.VideoGame g0 = new Models.VideoGame(
-			"Title:",
-			"Platform:",
-			"Genre:",
-			"ESRB Rating:",
-			2026,
-			"Image:",
-			"LoanedTo:",
-			DateOnly.Parse("LoanedOut:"));
+			"Deep Rock Galactic",
+			"PC",
+			"FPS",
+			"T",
+			2020,
+			"lib/images/Deep_Rock_Galactic_Cover_Art.jpg",
+			"Tyler",
+			DateOnly.Parse("10-8-2026"));
 		Models.VideoGame g1 = new Models.VideoGame(
-			"Title:",
-			"Platform:",
-			"Genre:",
-			"ESRB Rating:",
-			2026,
-			"Image:",
-			"LoanedTo:",
-			DateOnly.Parse("LoanedOut:"));
+			"Ori and the Blind Forest",
+			"PC",
+			"Metroidvania",
+			"E",
+			2015,
+			"lib/images/Ori_Forest.jpg");
 		Models.VideoGame g2 = new Models.VideoGame(
-			"Title:",
-			"Platform:",
-			"Genre:",
-			"ESRB Rating:",
-			2026,
-			"Image:",
-			"LoanedTo:",
-			DateOnly.Parse("LoanedOut:"));
+			"Ori and the Will of the Wisps",
+			"PC",
+			"Metroidvania",
+			"E",
+			2020,
+			"lib/images/Ori_Wisps.jpg");
 		Models.VideoGame g3 = new Models.VideoGame(
-			"Title:",
-			"Platform:",
-			"Genre:",
-			"ESRB Rating:",
-			2026,
-			"Image:",
-			"LoanedTo:",
-			DateOnly.Parse("LoanedOut:"));
+			"Vintage Story",
+			"PC",
+			"Survival Sandbox",
+			"T",
+			2018,
+			"lib/images/Vintage_Story_Logo.png",
+			"Jeremy",
+			DateOnly.Parse("10-9-2026"));
 		Models.VideoGame g4 = new Models.VideoGame(
-			"Title:",
-			"Platform:",
-			"Genre:",
-			"ESRB Rating:",
-			2026,
-			"Image:",
-			"LoanedTo:",
-			DateOnly.Parse("LoanedOut:"));
+			"Stardew Valley",
+			"PC",
+			"Farming Sim",
+			"E 10+",
+			2016,
+			"lib/images/StardewValley.jpg");
 
 			videoGames = [g0, g1, g2, g3, g4];
     }

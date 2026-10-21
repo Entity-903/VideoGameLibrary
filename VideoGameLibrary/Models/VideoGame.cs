@@ -1,4 +1,4 @@
-﻿namespace VideoGameLibrary.Models
+﻿namespace Models
 {
 	public class VideoGame
 	{
@@ -11,7 +11,7 @@
 		public string? LoanedTo {  get; set; }
 		public DateOnly? LoanDate {  get; set; }
 
-		public VideoGame(string title, string platform, string genre, string esrbRating, int year, string image, string? loanedTo, DateOnly? loanDate)
+		public VideoGame(string title, string platform, string genre, string esrbRating, int year, string image, string? loanedTo = null, DateOnly? loanDate = null)
 		{
 			Title = title;
 			Platform = platform;

@@ -58,3 +58,25 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 300px;
+    column-count:3;
+}
+
+td {
+    align-content: unsafe center;
+}
+
+img {
+    width: 150px;
+}
+
+.black {
+    color: #000000;
+}
